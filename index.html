@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atmane Studio — Apps for the Soul. Coming Soon.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal:#00A99D;
+    --bg:#EAF0F3;
+    --card:#FFFFFF;
+    --amber:#C97D2E;
+    --text:#18252E;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{height:100%;}
+  body{
+    font-family:'Onest', sans-serif;
+    font-weight:500;
+    background:var(--bg);
+    color:var(--text);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:100vh;
+    overflow:hidden;
+    position:relative;
+  }
+
+  /* ambient texture */
+  body::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(0,169,157,0.08), transparent 45%),
+      radial-gradient(circle at 85% 80%, rgba(201,125,46,0.07), transparent 45%);
+    pointer-events:none;
+  }
+
+  .wrap{
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:2.4rem;
+    padding:2rem;
+    text-align:center;
+  }
+
+  /* signature element: a single conversation card, mid-breath, waiting to be turned */
+  .card{
+    width:180px;
+    height:250px;
+    background:var(--card);
+    border-radius:18px;
+    box-shadow:0 20px 45px rgba(24,37,46,0.14), 0 2px 6px rgba(24,37,46,0.06);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    animation:breathe 4.2s ease-in-out infinite;
+    position:relative;
+  }
+  .card::after{
+    content:"";
+    position:absolute;
+    top:16px; left:16px; right:16px; bottom:16px;
+    border:1.5px solid rgba(24,37,46,0.07);
+    border-radius:12px;
+  }
+  .dots{
+    display:flex;
+    gap:8px;
+  }
+  .dots span{
+    width:9px;
+    height:9px;
+    border-radius:50%;
+    background:var(--teal);
+    opacity:0.35;
+    animation:blink 1.6s ease-in-out infinite;
+  }
+  .dots span:nth-child(1){animation-delay:0s;}
+  .dots span:nth-child(2){animation-delay:0.25s; background:var(--amber);}
+  .dots span:nth-child(3){animation-delay:0.5s;}
+
+  @keyframes breathe{
+    0%,100%{ transform:translateY(0) rotate(-1.5deg); }
+    50%{ transform:translateY(-8px) rotate(1.5deg); }
+  }
+  @keyframes blink{
+    0%,100%{opacity:0.25; transform:scale(0.85);}
+    50%{opacity:1; transform:scale(1);}
+  }
+
+  h1{
+    font-size:1.9rem;
+    font-weight:700;
+    letter-spacing:-0.01em;
+  }
+  h1 span{ color:var(--teal); }
+
+  p.tag{
+    font-size:1rem;
+    font-weight:400;
+    color:rgba(24,37,46,0.65);
+    max-width:360px;
+    line-height:1.5;
+  }
+
+  .pill{
+    font-size:0.8rem;
+    font-weight:600;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    color:var(--amber);
+    background:rgba(201,125,46,0.1);
+    padding:0.4rem 0.9rem;
+    border-radius:999px;
+  }
+
+  footer{
+    position:absolute;
+    bottom:1.6rem;
+    font-size:0.78rem;
+    color:rgba(24,37,46,0.4);
+    letter-spacing:0.02em;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .card, .dots span{ animation:none; }
+  }
+
+  @media (max-width:420px){
+    .card{ width:150px; height:210px; }
+    h1{ font-size:1.5rem; }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="pill">Coming Soon</div>
+    <div class="card">
+      <div class="dots"><span></span><span></span><span></span></div>
+    </div>
+    <h1>Apps for the <span>Soul</span></h1>
+    <p class="tag">Coming soon. September 2026.</p>
+  </div>
+  <footer>© 2026 Atmane d.o.o.</footer>
+</body>
+</html>
